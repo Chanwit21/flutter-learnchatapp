@@ -13,6 +13,7 @@ class _IndividualPageState extends State<IndividualPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey,
       appBar: AppBar(
         leadingWidth: 70,
         titleSpacing: 0,
@@ -106,6 +107,74 @@ class _IndividualPageState extends State<IndividualPage> {
             ];
           })
         ],
+      ),
+      body: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Stack(
+          children: [
+            // LastView(),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width - 60,
+                    child: Card(
+                      margin:
+                          const EdgeInsets.only(left: 2, right: 2, bottom: 8),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: TextField(
+                        textAlignVertical: TextAlignVertical.center,
+                        keyboardType: TextInputType.multiline,
+                        maxLines: 5,
+                        minLines: 1,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Typing Text",
+                          prefixIcon: IconButton(
+                            icon: const Icon(Icons.emoji_emotions),
+                            onPressed: () {},
+                          ),
+                          suffixIcon: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              IconButton(
+                                icon: const Icon(Icons.attach_file),
+                                onPressed: () {},
+                              ),
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(Icons.camera_alt)),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      bottom: 8,
+                      right: 2,
+                      left: 2,
+                    ),
+                    child: CircleAvatar(
+                      radius: 25,
+                      backgroundColor: Color(0xFF128C7E),
+                      child: IconButton(
+                        color: Colors.white,
+                        icon: Icon(Icons.mic),
+                        onPressed: () {},
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
